@@ -1,0 +1,55 @@
+	body {
+		font-family: 'Merriweather', serif;
+		background-clip: border-box;
+		background-image: url(egyptian-design.jpg);
+		min-height: 200px;
+		min-width: 100%;
+	}
+	header {
+		background-color: lightgrey;
+		opacity: .9;
+		min-height: 125px;
+		margin-bottom: 20px;
+		padding-left: 10px;
+	}
+	.title {
+		font-size: 35px;
+		font-size: bold;
+		display: inline-block;
+	}
+	.sub-title {
+		font-size: 20px;
+		font-style: italic;
+	}
+	.container {
+		background-color: lightgrey;
+		opacity: .9;
+		min-height: 125px;
+		float: left;
+		width: 100%;
+		font-size: 16px;
+	}
+	.movies {
+		position: relative;
+	}
+	.icon {
+		max-height: 270px;
+		max-width: 250px;
+		padding: 10px 10px 5px 10px;
+	}
+	.review {
+		display: none;
+	}
+	.movies:hover .review {
+		display: inline-block;
+		position: absolute;
+		text-align: left;
+		color: black;
+		font-family: 'Merriweather', serif;
+		margin: 20px 15px 10px 15px;
+		opacity: 1;
+		overflow: hidden;
+	}
+	.icon:hover {
+		opacity: .2;
+	}
