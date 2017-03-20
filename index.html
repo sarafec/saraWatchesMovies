@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sara and her stories</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-aria.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+	<script src="ui-bootstrap/ui-bootstrap-2.5.0.js"></script>
+	<script src="ui-bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.7.3/d3.js"></script>
+	<script src="mainModule.js"></script>
+
+	<style>
+	body {
+		font-family: 'Merriweather', serif;
+		background-clip: border-box;
+		background-image: url(egyptian-design.jpg);
+		min-height: 200px;
+		min-width: 100%;
+	}
+
+	header {
+		background-color: lightgrey;
+		opacity: .9;
+		min-height: 125px;
+		margin-bottom: 20px;
+		padding-left: 10px;
+	}
+
+	.title {
+		font-size: 35px;
+		font-size: bold;
+		display: inline-block;
+
+	}
+
+	.sub-title {
+		font-size: 20px;
+		font-style: italic;
+	}
+
+	.container {
+		background-color: lightgrey;
+		opacity: .9;
+		min-height: 125px;
+		float: left;
+		width: 100%;
+		font-size: 16px;
+	}
+
+	.movies {
+		position: relative;
+	}
+
+	.icon {
+		max-height: 270px;
+		max-width: 250px;
+		padding: 10px 10px 5px 10px;
+	}
+
+	.review {
+		display: none;
+	}
+
+	.movies:hover .review {
+		display: inline-block;
+		position: absolute;
+		text-align: left;
+		color: black;
+		font-family: 'Merriweather', serif;
+		margin: 20px 15px 10px 15px;
+		opacity: 1;
+		overflow: hidden;
+	}
+
+	.icon:hover {
+		opacity: .2;
+	}
+
+	
+	</style>
+</head>
+<body>
+	<header>
+		<h1 class="title">Sara and her stories</h1>
+		<p class="sub-title">An American reviews Egyptian films</p>
+	</header>
+
+	<ng-cloak>
+	<div ng-app="app" class="container">
+		<uib-tabset active="active">
+
+		<uib-tab index="0" heading="Movies">
+			<div ng-controller="iconCtrl">
+				<button class="movies" ng-repeat="icon in movies">
+					<a href="{{icon.onlineSource}}" target="_blank">
+					<div class="review">{{icon.shortReview}} 
+						<br> Released in {{icon.yearReleased}}. 
+					</div>
+					<img class="icon" src="{{icon.movieIcon}}"></img>
+					<div ng-init="icon.rating">
+					<div uib-rating read-only="isReadonly" ng-model="icon.rating">{{icon.rating}}</div>
+					</a>
+				</button>
+			</div>
+		</uib-tab>
+
+
+		<uib-tab index="1" heading="Visualization">
+			<div ng-controller="chartCtrl">
+				<scatter-chart data="movies"></scatter-chart>
+			</div>
+		</uib-tab>
+
+
+		<uib-tab index="2" class="resources" heading="Resources">
+			<p>Looking to improve your Egyptian Arabic skills? Check out the following links:</p>
+		 	<ul>
+		 		<a href="http://arabic.desert-sky.net/vocab.html" target="_blank"><li>Arabic Desert Sky Vocabulary</li></a>
+		 		<a href="http://arabic.desert-sky.net/grammar.html" target="_blank"><li>Arabic Desert Sky Grammar</li></a>
+		 		<br>
+		 		<a href="https://www.youtube.com/user/MBCMASR" target="_blank"><li>MBC Masr's YouTube Channel</li></a>
+		 		<a href="https://www.youtube.com/user/CBCEgyptDrama/videos" target="_blank"><li>CBC Drama's YouTube Channel</li></a>
+		 		<a href="https://www.youtube.com/user/MelodyEntInc" target="_blank"><li>Melody Aflam's YouTube Channel</li></a>
+		 		<a href="https://www.youtube.com/user/MelodyDramaTV/videos" target="_blank"><li>Melody Drama's YouTube Channel</li></a>
+		 		<a href="https://www.youtube.com/channel/UCHQe3QQltRVUBYwEW2dLHWQ/videos" target="_blank"><li>Melody Classic's YouTube Channel</li></a>
+		 	</ul>
+		</uib-tab>
+
+		</uib-tabset>
+  </div>
+  <ng-cloak>
+</body>
+</html>
