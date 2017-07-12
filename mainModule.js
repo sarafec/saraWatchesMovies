@@ -59,8 +59,8 @@ app.directive('scatterChart', function() {
 		let title = svg.append("g")
 			.attr("class", "chart-title");
 		title.append("text")
-			.attr("x", (width/4))
-			.attr("y", 25)
+			.attr("x", (width/5.5))
+			.attr("y", 30)
 			.style("font", "18px Merriweather")
 			.text("How do these films rate?");
 
@@ -92,9 +92,9 @@ app.directive('scatterChart', function() {
 				.append("text")
 				.attr("transform", "rotate(-90)")
 				.attr("y", -40)
-				.attr("x", -75)
+				.attr("x", -110)
 				.attr("fill", "#000")
-				.text("Ratings (out of 5)");
+				.text("Ratings");
 
 			//define tooltip behavior
 			let mouseover = function(d) {
