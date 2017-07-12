@@ -26,12 +26,16 @@
 		<uib-tab index="0" heading="Movies">
 			<div ng-controller="iconCtrl">
 				<button class="movies" ng-repeat="icon in movies">
-					<div class="review">{{icon.shortReview}} 
-						<br> Released in {{icon.yearReleased}}. 
+					<div class="movie-icon">
+						<div class="review-container">
+							<div class="review">{{icon.shortReview}} 
+								<br> Released in {{icon.yearReleased}}. 
+							</div>
+							<img class="icon" src="{{icon.movieIcon}}"></img>
+							<div ng-init="icon.rating">
+							<div uib-rating read-only="isReadonly" ng-model="icon.rating">{{icon.rating}}</div>
+						</div>
 					</div>
-					<img class="icon" src="{{icon.movieIcon}}"></img>
-					<div ng-init="icon.rating">
-					<div uib-rating read-only="isReadonly" ng-model="icon.rating">{{icon.rating}}</div>
 					</a>
 				</button>
 			</div>
@@ -46,11 +50,12 @@
 
 
 		<uib-tab index="2" class="resources" heading="Resources">
+		<br>
 			<p>Looking to improve your Egyptian Arabic skills? Check out the following links:</p>
 		 	<ul>
+		 		<br>
 		 		<a href="http://arabic.desert-sky.net/vocab.html" target="_blank"><li>Arabic Desert Sky Vocabulary</li></a>
 		 		<a href="http://arabic.desert-sky.net/grammar.html" target="_blank"><li>Arabic Desert Sky Grammar</li></a>
-		 		<br>
 		 		<a href="https://www.youtube.com/user/MBCMASR" target="_blank"><li>MBC Masr's YouTube Channel</li></a>
 		 		<a href="https://www.youtube.com/user/CBCEgyptDrama/videos" target="_blank"><li>CBC Drama's YouTube Channel</li></a>
 		 		<a href="https://www.youtube.com/user/MelodyEntInc" target="_blank"><li>Melody Aflam's YouTube Channel</li></a>
