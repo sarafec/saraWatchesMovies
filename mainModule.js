@@ -75,7 +75,7 @@ app.directive('scatterChart', function() {
 
 			//define domains
 			x.domain(d3.extent(data, function(d) { return d.dateWatched; }));
-			y.domain(d3.extent(data, function(d) { return d.rating; }));
+			y.domain([0, 5]);
 
 			//define x axis
 			g.append("g")
